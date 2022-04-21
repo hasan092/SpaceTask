@@ -5,12 +5,14 @@
       <map>
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/blue_round_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/blue_rounded_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/gold_circle.xml" value="0.2935185185185185" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/gold_rounded_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/drawable/white_round_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/card_item.xml" value="0.2" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/item_launch.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/landing_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/landing_fragment.xml" value="0.18" />
         <entry key="..\:/Users/foo user/AndroidStudioProjects/SpaceTask/app/src/main/res/layout/rocket_details_fragment.xml" value="0.25" />
       </map>
     </option>
