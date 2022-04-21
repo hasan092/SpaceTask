@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/landingFragment">
+
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.example.spacetask.app.landing.LandingFragment"
+        android:label="LandingFragment"
+        tools:layout="@layout/landing_fragment">
+
+        <action
+            android:id="@+id/toRocketDetailsFragment"
+            app:destination="@+id/rocketDetails"
+            app:popUpTo="@id/landingFragment"
+            app:popUpToSaveState="true">
+
+            <argument
+                android:name="launcher"
+                app:argType="com.example.spacetask.data.models.Launcher"
+                app:nullable="true" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/rocketDetails"
+        android:name="com.example.spacetask.app.rocket.RocketDetailsFragment"
+        android:label="RocketDetailsFragment"
+        tools:layout="@layout/rocket_details_fragment" />
+
+
+</navigation>

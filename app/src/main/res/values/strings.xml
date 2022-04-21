@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Space Task</string>
+    <string name="launches">Launches</string>
+    <string name="big_launch">The Big Launch</string>
+    <string name="gold">Gold</string>
+    <string name="space_ships">Space Ships</string>
+    <string name="read_more">Read More</string>
+    <string name="share">Share</string>
+</resources>
