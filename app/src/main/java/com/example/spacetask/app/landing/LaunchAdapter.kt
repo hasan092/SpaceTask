@@ -42,7 +42,6 @@ class LaunchAdapter(
                     Glide.with(context)
                         .load(it[0])
                         .transition(DrawableTransitionOptions.withCrossFade())
-                        .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .apply(options)
                         .into(binding.backgroundImage)
                 }

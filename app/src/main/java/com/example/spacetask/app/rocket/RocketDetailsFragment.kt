@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.example.spacetask.data.ResponseHandler
+import com.example.spacetask.app.base.BaseFragment
 import com.example.spacetask.data.models.Launcher
 import com.example.spacetask.data.models.Rocket
 import com.example.spacetask.databinding.RocketDetailsFragmentBinding
@@ -19,7 +19,7 @@ import com.example.spacetask.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RocketDetailsFragment : Fragment() {
+class RocketDetailsFragment : BaseFragment() {
     lateinit var binding: RocketDetailsFragmentBinding
     private val rocketViewModel: RocketViewModel by viewModels()
     private var launcher: Launcher? = null
@@ -40,25 +40,17 @@ class RocketDetailsFragment : Fragment() {
 
         launcher?.let {
             it.rocket?.let { rocket ->
-                rocketViewModel.getRocket(rocket, object : ResponseHandler<Rocket> {
-                    override fun onLoading() {
-
-                    }
-
-                    override fun onResponse(aResult: Rocket) {
-                        handleRocketDetails(aResult)
-                    }
-
-                    override fun onError(aError: String) {
-                    }
-
-                    override fun onFailure(aThrowable: Throwable) {
-                    }
-
-                })
+                rocketViewModel.getRocket(rocket)
             }
-
         }
+
+        rocketViewModel.rocket.observe(viewLifecycleOwner, Observer {
+            handleRocketDetails(it)
+        })
+
+        rocketViewModel.apiStatus.observe(viewLifecycleOwner, Observer {
+            handleApiStatus(it)
+        })
     }
 
     fun handleRocketDetails(rocket: Rocket) {

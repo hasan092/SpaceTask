@@ -14,8 +14,7 @@
         <action
             android:id="@+id/toRocketDetailsFragment"
             app:destination="@+id/rocketDetails"
-            app:popUpTo="@id/landingFragment"
-            app:popUpToSaveState="true">
+            app:popUpTo="@id/landingFragment">
 
             <argument
                 android:name="launcher"

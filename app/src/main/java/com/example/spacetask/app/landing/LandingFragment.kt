@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.spacetask.data.ResponseHandler
+import com.example.spacetask.app.base.BaseFragment
 import com.example.spacetask.data.models.Launcher
 import com.example.spacetask.databinding.LandingFragmentBinding
 import com.example.spacetask.utils.DateUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LandingFragment : Fragment() {
+class LandingFragment : BaseFragment() {
 
     lateinit var binding: LandingFragmentBinding
     private val landingViewModel:LandingViewModel by viewModels()
@@ -32,25 +32,18 @@ class LandingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        landingViewModel.getLaunches(object : ResponseHandler<List<Launcher>>{
-            override fun onLoading() {
+        landingViewModel.getLaunches()
 
-            }
+        landingViewModel.launchers.observe(viewLifecycleOwner, Observer {
+            handleLaunch(it)
+        })
 
-            override fun onResponse(aResult: List<Launcher>) {
-                handleLaunch(aResult)
-            }
-
-            override fun onError(aError: String) {
-            }
-
-            override fun onFailure(aThrowable: Throwable) {
-            }
-
+        landingViewModel.apiStatus.observe(viewLifecycleOwner, Observer {
+            handleApiStatus(it)
         })
     }
 
-    fun handleLaunch(launches: List<Launcher>) {
+    private fun handleLaunch(launches: List<Launcher>) {
         val list = launches.filter { (it.success && !DateUtils.isDateGreater(it.static_fire_date_unix?: 0)) || it.upcoming}
         adapter = LaunchAdapter(requireContext(), list) {
             findNavController().navigate(LandingFragmentDirections.toRocketDetailsFragment(it))
