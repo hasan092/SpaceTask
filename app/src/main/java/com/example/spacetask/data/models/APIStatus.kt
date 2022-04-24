@@ -1,6 +1,6 @@
 package com.example.spacetask.data.models
 
-class APIStatus(val status: Status, private val message: String? = null) {
+class APIStatus(val status: Status, val message: String? = null) {
 
     enum class Status {
         SUCCESS, FAILED, LOADING
